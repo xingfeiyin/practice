@@ -70,15 +70,6 @@
             <artifactId>ojdbc14</artifactId>
             <version>10.2.0.5.0</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.creditease.ns</groupId>-->
-            <!--<artifactId>YXSecurity</artifactId>-->
-            <!--<version>1.1.2</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>axis</groupId>-->
-            <!--<artifactId>axis</artifactId>-->
-        <!--</dependency>-->
 
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
         <dependency>
@@ -139,10 +130,12 @@
             <artifactId>commons-httpclient</artifactId>
             <version>3.1</version>
         </dependency>
+
         <dependency>
-            <groupId>com.creditease.ns</groupId>
-            <artifactId>YXSecurity</artifactId>
-            <version>1.1.2</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.18</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
