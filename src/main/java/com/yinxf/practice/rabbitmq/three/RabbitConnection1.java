@@ -135,5 +135,9 @@ public class RabbitConnection1 {
          *                          Map<String, Object> arguments) throws IOException;
          */
 
+        /**
+         * 7.rabbitmq的消费模式分为两种：推（push）模式和拉（pull）模式，推模式采用basic.consume进行消费，拉模式是调用basic.get进行消费。
+         *
+         */
     }
 }
