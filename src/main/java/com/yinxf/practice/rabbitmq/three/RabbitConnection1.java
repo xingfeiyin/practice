@@ -3,6 +3,7 @@ package com.yinxf.practice.rabbitmq.three;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.GetResponse;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -138,6 +139,42 @@ public class RabbitConnection1 {
         /**
          * 7.rabbitmq的消费模式分为两种：推（push）模式和拉（pull）模式，推模式采用basic.consume进行消费，拉模式是调用basic.get进行消费。
          *
+         * 推模式：
+         *
+         * channel类中basicConsume方法：
+         * String basicConsume(String queue , Consumer callback) throws IOException ;
+         * String basicConsume(String queue ， boolean autoAck, Consumer callback) throws IOException ;
+         * String basicConsume(String queue , boolean autoAck, Map<String, Object> arguments ,
+         *                  Consumer callback) throws IOException ;
+         * String basicConsume(String queue , boolean autoAck, String consumerTag,
+         *                      Consumer callback) throws IOException ;
+         * String basicConsume(String queue , boolean autoAck, String consumerTag,boolean noLocal ,
+         *          boolean exclusive, Map<String,Object> arguments , Consumer callback) throws IOException ;
+         * queue:队列名称
+         * autoAck:设置是否自动确认。建议设置成false，即不自动确认。
+         * consumerTag:消费者标签，用来区分多个消费者。
+         * noLocal：设置为true则表示不能将同一个Connection中生产者发送的消息传送给这个connection中的消费者。
+         * exclusive：设置是否排他。
+         * arguments:设置消费者的其他参数
+         * callback：设置消费者的回调函数。
+         *
          */
+
+        /**
+         * 8.拉模式
+         * 通过channel.basicGet方法获取单条消息，其返回值是GetRespone。
+         * GetResponse basicGet(String queue , boolean autoAck) throws IOException;
+         */
+        GetResponse response = channel.basicGet(QUEUE_NAME, false);
+        System.out.println(new String(response.getBody()));
+        channel.basicAck(response.getEnvelope().getDeliveryTag(),false);
+
+
+        /**
+         * 9.消费端的确认与拒绝
+         *
+         */
+
+
     }
 }
