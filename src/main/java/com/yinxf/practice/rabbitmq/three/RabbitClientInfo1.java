@@ -16,7 +16,7 @@ import java.util.concurrent.TimeoutException;
  * @Date 2020/1/19
  * @Description
  **/
-public class RabbitConnection1 {
+public class RabbitClientInfo1 {
 
     private static final String EXCHANGE_NAME = "exchange_demo";
     private static final String ROUTING_KEY = "routingkey_demo";
